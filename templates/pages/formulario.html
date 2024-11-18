@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Professores</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="Navbar">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+        <h1><a href="sobre_nos">Sobre nós</a></h1>
+        <h1><a href="/">Página inicial</a></h1>
+    </nav>
+
+    <div class="quest">
+        <div class="titulo-container">
+            <h1>Seja bem-vindo ao Atena!</h1>
+            <h3>Preencha o formulário abaixo:</h3>
+        </div>
+
+        <form id="schedule-form" class="form" method="POST" action="/form">
+            <div class="input">
+                <label for="num-periodos">Quantidade de períodos por dia:</label>
+                <input type="number" name="periodos" id="num-periodos" placeholder="Ex.: 4" required>
+            </div>
+            <div class="input">
+                <label for="nome-turmas">Nomes das turmas (separados por espaço):</label>
+                <input type="text" name="turmas" id="nome-turmas" placeholder="Ex.: 3A 3B 4A" required>
+            </div>
+            <div class="input">
+                <label for="professor-name">Nomes dos(as) professores(as):</label>
+                <div class="professor-input-container">
+                    <input type="text" id="professor-name" placeholder="Nome do professor">
+                    <button class="btn-simples" type="button" onclick="addProfessor()">Adicionar Professor</button>
+                </div>
+            </div>
+            <div id="professores-container"></div>
+            <button type="submit" class="btn">Enviar</button>
+            <div id="loading" style="display: none;">Processando...</div>
+        </form>
+    </div>
+
+    <script>
+        let professorsList = []; // Armazena os professores e suas disciplinas
+
+        function addProfessor() {
+            const professorName = document.getElementById('professor-name').value;
+            if (professorName.trim() === '') {
+                alert('Por favor, insira o nome do professor!');
+                return;
+            }
+
+            const professorDiv = document.createElement('div');
+            professorDiv.classList.add('professor');
+            professorDiv.innerHTML = `
+                <h3>${professorName}</h3>
+                <div class="input">
+                    <label>Disciplinas e turmas (separadas por espaço, ex.: 3A_Matematica 4B_Portugues):</label>
+                    <input type="text" name="disciplinas" placeholder="Disciplinas e turmas">
+                </div>
+                <div class="input">
+                    <label>Horas semanais:</label>
+                    <input type="number" name="horas" placeholder="Ex.: 10">
+                </div>
+            `;
+            document.getElementById('professores-container').appendChild(professorDiv);
+            professorsList.push(professorName);
+            document.getElementById('professor-name').value = ''; // Limpa o campo de nome
+        }
+    </script>
+</body>
+</html>

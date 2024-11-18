@@ -1,0 +1,56 @@
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    font-family: 'Roboto', sans-serif;
+    background-image: url("../images/fundo.jpg");
+    height: 100vh;
+    overflow: hidden;
+  }
+
+.Navbar {
+    /* Texto branco */
+    width: 100vw;
+    /* Largura da viewport */
+    overflow: hidden;
+    /* Esconde a rolagem */
+    height: 150px;
+    /* Altura definida */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    /* Espaçamento interno */
+    z-index: 10;
+    /* Z-index alto */
+    margin-left: -15px;
+  }
+  
+  .Navbar h1 {
+    font-size: 34px;
+    color: #f7f6fa;
+    margin-left: 40px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .Navbar h1 a {
+    text-decoration: none;
+    /* Remove o sublinhado do link */
+    color: inherit;
+    /* Herda a cor do h1 */
+  }
+  
+  .Navbar img {
+    margin-left: 30px;
+  }
+  
+  .Navbar h1:hover {
+    color: white;
+    /* Cor ao passar o mouse */
+    transform: scale(1.2);
+    /* Aumenta o tamanho */
+  }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+</head>
+<body>
+    <h1>Resultados</h1>
+
+    {% if horarios %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Período</th>
+                    <th>Turma</th>
+                    <th>Professor</th>
+                    <th>Disciplina</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for horario in horarios %}
+                <tr>
+                    <td>{{ horario.período }}</td>
+                    <td>{{ horario.turma }}</td>
+                    <td>{{ horario.professor }}</td>
+                    <td>{{ horario.disciplina }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum horário gerado. Por favor, preencha o formulário corretamente.</p>
+    {% endif %}
+</body>
+</html>

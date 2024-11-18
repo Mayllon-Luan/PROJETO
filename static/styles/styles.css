@@ -1,0 +1,291 @@
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Mantém a imagem fixa enquanto rola */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  background-image: url("../images/fundo.jpg");
+}
+
+label
+{
+  font-size: 3vh;
+}
+
+h1
+{
+  font-size: 5vh
+}
+
+h3
+{
+  font-size: 4vh
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.professor-input-container {
+  display: flex; /* Faz com que os filhos sejam exibidos em linha */
+  align-items: center; /* Alinha verticalmente no centro */
+}
+
+.professor-input-container input {
+  margin-right: 5vw; /* Espaço entre o input e o botão */
+  flex-grow: 1; /* O input ocupa o espaço restante */
+}
+
+.form {
+  margin-top: 10vh;
+}
+
+.cronograma {
+  border-radius: 3vh;
+  background-color: rgb(236, 243, 249);
+  height: auto; /* Mude para auto para se ajustar ao conteúdo */
+  width: 1250vw;
+  padding: 20vw; 
+  color: #ffffff;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5), -4px -4px 9px rgba(0, 0, 0, 0.3);
+}
+
+.Navbar {
+  /* Texto branco */
+  width: 100vw;
+  /* Largura da viewport */
+  overflow: hidden;
+  /* Esconde a rolagem */
+  height: 10vh;
+  /* Altura definida */
+  padding: 2vh;
+  /* Espaçamento interno */
+  z-index: 10;
+  /* Z-index alto */
+  margin-left: 0vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.Navbar h1 {
+  font-size: 3vh;
+  color: #f7f6fa;
+  margin-left: 4vw;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.Navbar h1 a {
+  text-decoration: none;
+  /* Remove o sublinhado do link */
+  color: inherit;
+  /* Herda a cor do h1 */
+}
+
+.Navbar img {
+  margin-left: 3vw;
+  height: 30vh;
+}
+
+.Navbar h1:hover {
+  color: white;
+  /* Cor ao passar o mouse */
+  transform: scale(1.2);
+  /* Aumenta o tamanho */
+}
+
+.quest {
+  border-radius: 10px;
+  margin: 3vh;
+  max-height: 80vh;  /* Define uma altura máxima para o questionário */
+  overflow-y: auto;  /* Permite a rolagem interna */
+  width: 80vw;
+  padding: 5vh;
+  color: #ffffff;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5), -4px -4px 9px rgba(0, 0, 0, 0.3);
+  opacity: 90%;
+  background: transparent;
+  border: 2px solid rgb(255, 255, 255);
+  backdrop-filter: blur(400px);
+}
+
+.titulo-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+}
+
+.btn-simples {
+  margin-top: 3vh; 
+  padding: 2vh;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 4vh;
+  width: 25vw;
+  height: 7vh;
+  font-size: 3vh;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  margin-left: 10vw; /* Centraliza horizontalmente */
+  margin-right: auto; /* Centraliza horizontalmente */
+
+}
+
+.btn-simples::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0d6758;
+  left: 0;
+  top: 0;
+  border-radius: 10vw;
+}
+
+.btn-simples::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00,
+    #00FFD5, #002BFF, #FF00C8, #FF0000
+  );
+  position: absolute;
+  top: -2vh;
+  left: -2vw;
+  background-size: 600vh;
+  z-index: -1;
+  width: calc(100% + 4vw);
+  height: calc(100% + 4vh);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10vw;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* Hover */
+.btn-simples:hover::before {
+  opacity: 1;
+}
+
+.btn-simples:active:after {
+  background: transparent;
+}
+
+.btn-simples:active {
+  color: hwb(38 63% 2%);
+  font-weight: bold;
+}
+
+.btn {
+  margin-top: 7vh; 
+  padding: 3vh;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 5vh;
+  width: 50vw;
+  height: 10vh;
+  font-size: 5vh;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  margin-left: auto; /* Centraliza horizontalmente */
+  margin-right: auto; /* Centraliza horizontalmente */
+}
+
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 50vw;
+  height: 10vh;
+  background-color: #0d6758;
+  left: 0;
+  top: 0;
+  border-radius: 5vw;
+}
+
+/* Glow */
+.btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00,
+    #00FFD5, #002BFF, #FF00C8, #FF0000
+  );
+  position: absolute;
+  top: -2vh;
+  left: -2vw;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4vw);
+  height: calc(100% + 4vh);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10vw;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* Hover */
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active:after {
+  background: transparent;
+}
+
+.btn:active {
+  color: hwb(38 63% 2%);
+  font-weight: bold;
+}
+
+.input {
+  position: relative;
+  width: 100%;
+  margin: 1vh; /* Espaço entre os inputs */
+}
+
+.input input {
+  border: none; /* Remove bordas padrão */
+  background: transparent; /* Sem fundo */
+  width: 100%; /* Ocupa toda a largura do contêiner */
+  outline: none; /* Remove a outline ao focar no input */
+  padding: 1vh 0; /* Espaçamento interno no topo e na parte inferior */
+  font-size: 4vh; /* Ajuste o tamanho da fonte se necessário */
+  color: #ffffff;
+}
+
+.input input::placeholder {
+  color: #ffffff; /* Cor do placeholder */
+  opacity: 0.7; /* Opacidade do placeholder, se desejar */
+}

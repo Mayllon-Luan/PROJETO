@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atena - Página Inicial</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/styles-pag-inicial.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="Navbar">
+        <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+        <h1><a href="about">Sobre nós</a></h1>
+        <h1><a href="">Página inicial</a></h1>
+    </nav>
+
+    <div class="info-inicial">
+        <h1>Seja Bem-vindo(a) ao Atena!</h1>
+        <h2>Organize, Simplifique, Ensine</h2>
+        <p>O Atena é uma ferramenta inovadora desenvolvida para ajudar professores a organizarem suas semanas de aulas
+            de forma eficiente. Ao responder a um questionário simples, você receberá um cronograma personalizado que se
+            adapta às suas disciplinas e horários. Simplifique o planejamento das suas aulas com Atena e torne sua
+            rotina mais produtiva e organizada!</p>
+        <button class="btn" id="actionBtn" onclick="handleButtonClick()">Saiba mais</button>
+    </div>
+
+    <div class="tutorial-content" id="tutorial">
+        <div class="tutorial-item">
+            <h3>Responda o formulário</h3>
+            <p>O primeiro passo é responder o nosso formulário, é nele que extraimos os dados que seram necessários para
+                a criação do cronograma, como o nome de todos os professores, matérias que lecionam, etc.</p>
+        </div>
+        <img src="{{url_for('static',filename='images/seta.png')}}" alt="Seta" class="seta">
+        <div class="tutorial-item">
+            <h3>O cronograma</h3>
+            <p>Após finalizar o questionário você deve enviá-lo clicando no botão "enviar", com isso você será
+                direcionado para a página com o cronograma já criado e poderá baixá-lo ou até mesmo imprimir.</p>
+        </div>
+        <img src="{{url_for('static',filename='images/seta.png')}}" alt="Seta" class="seta">
+        <div class="tutorial-item">
+            <h3>E por fim</h3>
+            <p>Quando seu cronograma já tiver sido feito e estiver como era esperado ficar, nós o recomendamos que você
+                acesse a página "Sobre nós", lá você encontrará quem fez parte da criação deste projeto.</p>
+        </div>
+    </div>
+
+    <script>
+        let buttonClicked = false; // Variável para verificar se o botão foi clicado
+
+        function handleButtonClick() {
+            var tutorialContent = document.getElementById("tutorial");
+            var button = document.getElementById("actionBtn");
+            var items = document.querySelectorAll(".tutorial-item");
+
+            // Mostrar/ocultar conteúdo do tutorial
+            if (tutorialContent.style.display === "none" || tutorialContent.style.display === "") {
+                tutorialContent.style.display = "flex"; // Mostra o conteúdo como flex
+
+                // Se o botão não foi clicado antes
+                if (!buttonClicked) {
+                    button.classList.add("btn-active"); // Adiciona a classe para estilo ativo
+                    button.classList.add("clicked"); // Marca que o botão foi clicado
+                    buttonClicked = true; // Marca que o botão foi clicado
+                }
+                button.textContent = "Comece já"; // Altera o texto do botão
+
+                // Redireciona para o novo arquivo após clicar
+                button.onclick = function () {
+                    window.location.href = "form"; // Redireciona para o novo arquivo
+                };
+
+                // Torna os itens visíveis com animação
+                setTimeout(() => {
+                    items.forEach(item => {
+                        item.classList.add("visible"); // Adiciona a classe para animação
+                    });
+                }, 10); // Pequeno delay para garantir a transição
+            } else {
+                tutorialContent.style.display = "none"; // Oculta o conteúdo
+                items.forEach(item => {
+                    item.classList.remove("visible"); // Remove a classe de visibilidade
+                });
+            }
+        }
+
+        // Certifique-se de que o conteúdo comece oculto
+        document.addEventListener("DOMContentLoaded", function () {
+            var tutorialContent = document.getElementById("tutorial");
+            tutorialContent.style.display = "none"; // Inicialmente oculto
+        });
+
+    </script>
+</body>
+
+</html>

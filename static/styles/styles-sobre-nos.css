@@ -1,0 +1,346 @@
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.Font-Large {
+    font-size: 4vh;
+}
+
+.Font-Large-GM {
+    font-size: 4vh;
+}
+
+.card {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Aumenta a sombra do card */
+    display: flex;
+    align-items: left;
+    background-color: #ffffff;
+    border-radius: 3vh;
+    overflow: hidden;
+    height: 50vh;
+    width: 85vw;
+    margin: 2rem; /* Centraliza o card e adiciona espaço ao redor */
+    margin-left: 20px;
+}
+
+.card-content {
+    padding: 3vh;
+    flex: 1;
+}
+
+.card-content h2 {
+    margin-top: 0;
+    color: #000000;
+    font-size: 2vh;
+}
+
+.professor-input-container {
+    display: flex;
+    /* Faz com que os filhos sejam exibidos em linha */
+    align-items: center;
+    /* Alinha verticalmente no centro */
+}
+
+.professor-input-container input {
+    margin-right: 10px;
+    /* Espaço entre o input e o botão */
+    flex-grow: 1;
+    /* O input ocupa o espaço restante */
+}
+
+.form {
+    margin-top: 10px;
+}
+
+.cronograma {
+    border-radius: 10px;
+    background-color: rgb(236, 243, 249);
+    height: auto;
+    /* Mude para auto para se ajustar ao conteúdo */
+    width: 1250px;
+    padding: 20px;
+    color: #ffffff;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5), -4px -4px 9px rgba(0, 0, 0, 0.3);
+}
+
+.Navbar {
+    background-color: #350e53;
+    /* Texto branco */
+    width: 100vw;
+    /* Largura da viewport */
+    overflow: hidden;
+    /* Esconde a rolagem */
+    height: 10vh;
+    /* Altura definida */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2vh;
+    /* Espaçamento interno */
+    z-index: 10;
+    /* Z-index alto */
+}
+
+.Navbar h1 {
+    font-size: 3.2vh;
+    color: #f7f6fa;
+    margin-left: 40px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.Navbar h1 a {
+    text-decoration: none;
+    /* Remove o sublinhado do link */
+    color: inherit;
+    /* Herda a cor do h1 */
+}
+
+.Navbar img {
+    margin-left: 3vh;
+    height: 30vh;
+}
+
+.Navbar h1:hover {
+    color: white;
+    /* Cor ao passar o mouse */
+    transform: scale(1.2);
+    /* Aumenta o tamanho */
+}
+
+.quest {
+    border-radius: 10px;
+    max-height: 85vh;
+    overflow-y: auto;
+    width: 750px;
+    padding: 20px;
+    color: #ffffff;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5), -4px -4px 9px rgba(0, 0, 0, 0.3);
+    margin-top: 0px;
+    opacity: 90%;
+    background: transparent;
+    border: 2px solid rgb(255, 255, 255);
+    backdrop-filter: blur(400px);
+}
+
+.titulo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-simples {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    width: 3o0px;
+    height: auto;
+    font-size: 14px;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin-left: 10px;
+    /* Centraliza horizontalmente */
+    margin-right: auto;
+    /* Centraliza horizontalmente */
+
+}
+
+.btn-simples::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0d6758;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.btn-simples::before {
+    content: "";
+    background: linear-gradient(45deg,
+            #FF0000, #FF7300, #FFFB00, #48FF00,
+            #00FFD5, #002BFF, #FF00C8, #FF0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Hover */
+.btn-simples:hover::before {
+    opacity: 1;
+}
+
+.btn-simples:active:after {
+    background: transparent;
+}
+
+h1{
+  font-size: 5vh;
+}
+
+.btn-simples:active {
+    color: hwb(38 63% 2%);
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    width: 300px;
+    height: 50px;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    /* Centraliza horizontalmente */
+    margin-right: auto;
+    /* Centraliza horizontalmente */
+}
+
+.btn::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0d6758;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+/* Glow */
+.btn::before {
+    content: "";
+    background: linear-gradient(45deg,
+            #FF0000, #FF7300, #FFFB00, #48FF00,
+            #00FFD5, #002BFF, #FF00C8, #FF0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Hover */
+.btn:hover::before {
+    opacity: 1;
+}
+
+.btn:active:after {
+    background: transparent;
+}
+
+.btn:active {
+    color: hwb(38 63% 2%);
+    font-weight: bold;
+}
+
+.input {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+    /* Espaço entre os inputs */
+}
+
+.autor
+{
+  font-size: 3vh;
+}
+
+.input input {
+    border: none;
+    /* Remove bordas padrão */
+    border-bottom: 2px solid #071d1a;
+    /* Borda inferior */
+    background: transparent;
+    /* Sem fundo */
+    width: 100%;
+    /* Ocupa toda a largura do contêiner */
+    outline: none;
+    /* Remove a outline ao focar no input */
+    padding: 8px 0;
+    /* Espaçamento interno no topo e na parte inferior */
+    font-size: 16px;
+    /* Ajuste o tamanho da fonte se necessário */
+    color: #ffffff;
+}
+
+.input input::placeholder {
+    color: #ffffff;
+    /* Cor do placeholder */
+    opacity: 0.7;
+    /* Opacidade do placeholder, se desejar */
+}
